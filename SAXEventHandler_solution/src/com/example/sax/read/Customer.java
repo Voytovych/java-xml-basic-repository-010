@@ -1,4 +1,4 @@
-package com.example.sax.read;
+ package com.example.sax.read;
 
 import java.math.BigDecimal;
 import java.text.DateFormat;
@@ -16,7 +16,7 @@ public class Customer {
 	private Date joined;
 
 	//data item names
-	public static final String 
+	public static final String   
 		ID="id",
 		NAME="name",
 		PHONE="phone",

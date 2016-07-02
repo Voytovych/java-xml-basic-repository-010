@@ -24,9 +24,9 @@ public class DataProvider {
 //	This method is just for testing
 	public static void main(String[] args) {
 		Stopwatch watch = new Stopwatch().start("Getting data from JSON");
-		List<Customer> data = getData(LARGE);
+		List<Customer> data = getData(SMALL);
 		System.out.println("Returned: " + data.size());
-		for (int i = 0; i < Math.min(data.size(), 10); i++) {
+		for (int i = 0; i < Math.min(data.size(), 10); i++) { 
 			System.out.println((Customer)data.get(i));
 		}
 		watch.stop();
