@@ -13,7 +13,7 @@ public class ReadXMLWithJDOM {
 	public static void main(String[] args) throws DataConversionException, ParseException {
 
 		JDOMReader reader = new JDOMReader();
-		List<Customer> data = reader.getDataFromXML(DataProvider.DATADIR + "customers.xml");
+		List<Customer> data = reader.getDataFromXML(DataProvider.DATADIR + "customers.xml", "//customer[age>= 65]");
 		
 		System.out.println("Number of customers: " + data.size());
 		

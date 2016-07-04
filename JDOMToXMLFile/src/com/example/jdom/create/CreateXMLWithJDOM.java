@@ -1,5 +1,8 @@
 package com.example.jdom.create;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 import org.jdom2.Document;
@@ -12,7 +15,7 @@ import com.example.model.Customer;
 
 public class CreateXMLWithJDOM {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		List<Customer> data = DataProvider.getData(DataProvider.SMALL);
 
@@ -25,6 +28,8 @@ public class CreateXMLWithJDOM {
 		String xmlString = outputter.outputString(doc);
 		System.out.println(xmlString);
 		
+		FileWriter writer = new FileWriter(new File("./output/customers.xml"));
+		outputter.output(doc, writer);
 	}
 
 }

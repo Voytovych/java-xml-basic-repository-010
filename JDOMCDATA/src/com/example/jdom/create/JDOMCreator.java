@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import org.jdom2.CDATA;
 import org.jdom2.Document;
 import org.jdom2.Element;
 
@@ -31,7 +32,11 @@ public class JDOMCreator {
 			addChildElement(custElement, Customer.NAME, customer.getName());
 			addChildElement(custElement, Customer.PHONE, customer.getPhone());
 			addChildElement(custElement, Customer.AGE, Integer.toString(customer.getAge()));
-			addChildElement(custElement, Customer.ABOUT, customer.getAbout());
+			
+			Element about = addChildElement(custElement, Customer.ABOUT, "");
+			CDATA cdata = new CDATA(customer.getAbout());
+			about.addContent(cdata);
+			
 			addChildElement(custElement, Customer.BALANCE, customer.getBalance().toString());
 			addChildElement(custElement, Customer.ACTIVE, Boolean.toString(customer.getActive()));
 			
@@ -44,10 +49,11 @@ public class JDOMCreator {
 		
 	}
 	
-	private void addChildElement(Element parent, String elementName, String textValue) {
+	private Element addChildElement(Element parent, String elementName, String textValue) {
 		Element child = new Element(elementName);
 		child.setText(textValue);
 		parent.addContent(child);
+		return child;
 	}
 	
 }
